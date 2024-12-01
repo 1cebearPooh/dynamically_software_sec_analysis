@@ -1,0 +1,366 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.3.3, pluggy-1.5.0
+rootdir: /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/DynaPyt
+configfile: pyproject.toml
+plugins: cov-6.0.0, httpbin-2.1.0, anyio-4.6.2.post1, xdist-3.6.1
+created: 8/8 workers
+8 workers [606 items]
+
+........................................................................ [ 11%]
+......................................F................................. [ 23%]
+............X........................................................... [ 35%]
+.................................................................s...F.F [ 47%]
+..F.........F...............................F........................... [ 59%]
+...............F........................................................ [ 71%]
+.....................................................................sss [ 83%]
+ssssssss.....s..........................................s......s........ [ 95%]
+..............................                                           [100%]
+=================================== FAILURES ===================================
+__________________ TestRequests.test_conflicting_post_params ___________________
+[gw7] darwin -- Python 3.9.6 /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/.venv/bin/python
+
+self = <tests.test_requests.TestRequests object at 0x118762070>
+httpbin = <function prepare_url.<locals>.inner at 0x11a1f69d0>
+
+    def test_conflicting_post_params(self, httpbin):
+        url = httpbin("post")
+>       with open("requirements-dev.txt") as f:
+E       FileNotFoundError: [Errno 2] No such file or directory: 'requirements-dev.txt'
+
+test/pythonRepo/requests/tests/test_requests.py:887: FileNotFoundError
+___________________ TestRequests.test_POSTBIN_GET_POST_FILES ___________________
+[gw6] darwin -- Python 3.9.6 /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/.venv/bin/python
+
+self = <tests.test_requests.TestRequests object at 0x104a59dc0>
+httpbin = <function prepare_url.<locals>.inner at 0x10582aaf0>
+
+    def test_POSTBIN_GET_POST_FILES(self, httpbin):
+        url = httpbin("post")
+        requests.post(url).raise_for_status()
+    
+        post1 = requests.post(url, data={"some": "data"})
+        assert post1.status_code == 200
+    
+>       with open("requirements-dev.txt") as f:
+E       FileNotFoundError: [Errno 2] No such file or directory: 'requirements-dev.txt'
+
+test/pythonRepo/requests/tests/test_requests.py:786: FileNotFoundError
+----------------------------- Captured stderr call -----------------------------
+127.0.0.1 - - [01/Dec/2024 05:40:45] "POST /post HTTP/1.1" 200 293
+127.0.0.1 - - [01/Dec/2024 05:40:45] "POST /post HTTP/1.1" 200 357
+_ TestPreparingURLs.test_different_connection_pool_for_tls_settings_verify_True _
+[gw2] darwin -- Python 3.9.6 /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/.venv/bin/python
+
+self = <tests.test_requests.TestPreparingURLs object at 0x106c95ac0>
+
+    def test_different_connection_pool_for_tls_settings_verify_True(self):
+        def response_handler(sock):
+            consume_socket_content(sock, timeout=0.5)
+            sock.send(
+                b"HTTP/1.1 200 OK\r\n"
+                b"Content-Length: 18\r\n\r\n"
+                b'\xff\xfe{\x00"\x00K0"\x00=\x00"\x00\xab0"\x00\r\n'
+            )
+    
+        s = requests.Session()
+        close_server = threading.Event()
+>       server = TLSServer(
+            handler=response_handler,
+            wait_to_close_event=close_server,
+            requests_to_handle=3,
+            cert_chain="tests/certs/expired/server/server.pem",
+            keyfile="tests/certs/expired/server/server.key",
+        )
+
+test/pythonRepo/requests/tests/test_requests.py:2830: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <TLSServer(Thread-1, initial)>
+
+    def __init__(
+        self,
+        *,
+        handler=None,
+        host="localhost",
+        port=0,
+        requests_to_handle=1,
+        wait_to_close_event=None,
+        cert_chain=None,
+        keyfile=None,
+        mutual_tls=False,
+        cacert=None,
+    ):
+        super().__init__(
+            handler=handler,
+            host=host,
+            port=port,
+            requests_to_handle=requests_to_handle,
+            wait_to_close_event=wait_to_close_event,
+        )
+        self.cert_chain = cert_chain
+        self.keyfile = keyfile
+        self.ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+>       self.ssl_context.load_cert_chain(self.cert_chain, keyfile=self.keyfile)
+E       FileNotFoundError: [Errno 2] No such file or directory
+
+test/pythonRepo/requests/tests/testserver/server.py:164: FileNotFoundError
+______________ TestRequests.test_POSTBIN_GET_POST_FILES_WITH_DATA ______________
+[gw6] darwin -- Python 3.9.6 /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/.venv/bin/python
+
+self = <tests.test_requests.TestRequests object at 0x104a623d0>
+httpbin = <function prepare_url.<locals>.inner at 0x10583ae50>
+
+    def test_POSTBIN_GET_POST_FILES_WITH_DATA(self, httpbin):
+        url = httpbin("post")
+        requests.post(url).raise_for_status()
+    
+        post1 = requests.post(url, data={"some": "data"})
+        assert post1.status_code == 200
+    
+>       with open("requirements-dev.txt") as f:
+E       FileNotFoundError: [Errno 2] No such file or directory: 'requirements-dev.txt'
+
+test/pythonRepo/requests/tests/test_requests.py:850: FileNotFoundError
+----------------------------- Captured stderr call -----------------------------
+127.0.0.1 - - [01/Dec/2024 05:40:45] "POST /post HTTP/1.1" 200 293
+127.0.0.1 - - [01/Dec/2024 05:40:45] "POST /post HTTP/1.1" 200 357
+_ TestPreparingURLs.test_different_connection_pool_for_tls_settings_verify_bundle_expired_cert _
+[gw2] darwin -- Python 3.9.6 /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/.venv/bin/python
+
+self = <tests.test_requests.TestPreparingURLs object at 0x106c955e0>
+
+    def test_different_connection_pool_for_tls_settings_verify_bundle_expired_cert(
+        self,
+    ):
+        def response_handler(sock):
+            consume_socket_content(sock, timeout=0.5)
+            sock.send(
+                b"HTTP/1.1 200 OK\r\n"
+                b"Content-Length: 18\r\n\r\n"
+                b'\xff\xfe{\x00"\x00K0"\x00=\x00"\x00\xab0"\x00\r\n'
+            )
+    
+        s = requests.Session()
+        close_server = threading.Event()
+>       server = TLSServer(
+            handler=response_handler,
+            wait_to_close_event=close_server,
+            requests_to_handle=3,
+            cert_chain="tests/certs/expired/server/server.pem",
+            keyfile="tests/certs/expired/server/server.key",
+        )
+
+test/pythonRepo/requests/tests/test_requests.py:2863: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <TLSServer(Thread-2, initial)>
+
+    def __init__(
+        self,
+        *,
+        handler=None,
+        host="localhost",
+        port=0,
+        requests_to_handle=1,
+        wait_to_close_event=None,
+        cert_chain=None,
+        keyfile=None,
+        mutual_tls=False,
+        cacert=None,
+    ):
+        super().__init__(
+            handler=handler,
+            host=host,
+            port=port,
+            requests_to_handle=requests_to_handle,
+            wait_to_close_event=wait_to_close_event,
+        )
+        self.cert_chain = cert_chain
+        self.keyfile = keyfile
+        self.ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+>       self.ssl_context.load_cert_chain(self.cert_chain, keyfile=self.keyfile)
+E       FileNotFoundError: [Errno 2] No such file or directory
+
+test/pythonRepo/requests/tests/testserver/server.py:164: FileNotFoundError
+_ TestPreparingURLs.test_different_connection_pool_for_tls_settings_verify_bundle_unexpired_cert _
+[gw2] darwin -- Python 3.9.6 /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/.venv/bin/python
+
+self = <tests.test_requests.TestPreparingURLs object at 0x106c95430>
+
+    def test_different_connection_pool_for_tls_settings_verify_bundle_unexpired_cert(
+        self,
+    ):
+        def response_handler(sock):
+            consume_socket_content(sock, timeout=0.5)
+            sock.send(
+                b"HTTP/1.1 200 OK\r\n"
+                b"Content-Length: 18\r\n\r\n"
+                b'\xff\xfe{\x00"\x00K0"\x00=\x00"\x00\xab0"\x00\r\n'
+            )
+    
+        s = requests.Session()
+        close_server = threading.Event()
+>       server = TLSServer(
+            handler=response_handler,
+            wait_to_close_event=close_server,
+            requests_to_handle=3,
+            cert_chain="tests/certs/valid/server/server.pem",
+            keyfile="tests/certs/valid/server/server.key",
+        )
+
+test/pythonRepo/requests/tests/test_requests.py:2896: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <TLSServer(Thread-3, initial)>
+
+    def __init__(
+        self,
+        *,
+        handler=None,
+        host="localhost",
+        port=0,
+        requests_to_handle=1,
+        wait_to_close_event=None,
+        cert_chain=None,
+        keyfile=None,
+        mutual_tls=False,
+        cacert=None,
+    ):
+        super().__init__(
+            handler=handler,
+            host=host,
+            port=port,
+            requests_to_handle=requests_to_handle,
+            wait_to_close_event=wait_to_close_event,
+        )
+        self.cert_chain = cert_chain
+        self.keyfile = keyfile
+        self.ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+>       self.ssl_context.load_cert_chain(self.cert_chain, keyfile=self.keyfile)
+E       FileNotFoundError: [Errno 2] No such file or directory
+
+test/pythonRepo/requests/tests/testserver/server.py:164: FileNotFoundError
+______ TestPreparingURLs.test_different_connection_pool_for_mtls_settings ______
+[gw2] darwin -- Python 3.9.6 /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/.venv/bin/python
+
+self = <tests.test_requests.TestPreparingURLs object at 0x106c95250>
+
+    def test_different_connection_pool_for_mtls_settings(self):
+        client_cert = None
+    
+        def response_handler(sock):
+            nonlocal client_cert
+            client_cert = sock.getpeercert()
+            consume_socket_content(sock, timeout=0.5)
+            sock.send(
+                b"HTTP/1.1 200 OK\r\n"
+                b"Content-Length: 18\r\n\r\n"
+                b'\xff\xfe{\x00"\x00K0"\x00=\x00"\x00\xab0"\x00\r\n'
+            )
+    
+        s = requests.Session()
+        close_server = threading.Event()
+>       server = TLSServer(
+            handler=response_handler,
+            wait_to_close_event=close_server,
+            requests_to_handle=2,
+            cert_chain="tests/certs/expired/server/server.pem",
+            keyfile="tests/certs/expired/server/server.key",
+            mutual_tls=True,
+            cacert="tests/certs/expired/ca/ca.crt",
+        )
+
+test/pythonRepo/requests/tests/test_requests.py:2930: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <TLSServer(Thread-4, initial)>
+
+    def __init__(
+        self,
+        *,
+        handler=None,
+        host="localhost",
+        port=0,
+        requests_to_handle=1,
+        wait_to_close_event=None,
+        cert_chain=None,
+        keyfile=None,
+        mutual_tls=False,
+        cacert=None,
+    ):
+        super().__init__(
+            handler=handler,
+            host=host,
+            port=port,
+            requests_to_handle=requests_to_handle,
+            wait_to_close_event=wait_to_close_event,
+        )
+        self.cert_chain = cert_chain
+        self.keyfile = keyfile
+        self.ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+>       self.ssl_context.load_cert_chain(self.cert_chain, keyfile=self.keyfile)
+E       FileNotFoundError: [Errno 2] No such file or directory
+
+test/pythonRepo/requests/tests/testserver/server.py:164: FileNotFoundError
+=============================== warnings summary ===============================
+../.venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+../.venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+../.venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+../.venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+../.venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+../.venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+../.venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+../.venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+  /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+    warnings.warn(
+
+test/pythonRepo/requests/src/requests/__init__.py:115
+test/pythonRepo/requests/src/requests/__init__.py:115
+test/pythonRepo/requests/src/requests/__init__.py:115
+test/pythonRepo/requests/src/requests/__init__.py:115
+test/pythonRepo/requests/src/requests/__init__.py:115
+test/pythonRepo/requests/src/requests/__init__.py:115
+test/pythonRepo/requests/src/requests/__init__.py:115
+test/pythonRepo/requests/src/requests/__init__.py:115
+  /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/DynaPyt/test/pythonRepo/requests/src/requests/__init__.py:115: RequestsDependencyWarning: urllib3 (2.2.4.dev23) or chardet (None)/charset_normalizer (3.4.0) doesn't match a supported version!
+    warnings.warn(
+
+test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_set_basicauth[42-42]
+test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_set_basicauth[42-42]
+  /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/DynaPyt/test/pythonRepo/requests/src/requests/auth.py:38: DeprecationWarning: Non-string usernames will no longer be supported in Requests 3.0.0. Please convert the object you've passed in (42) to a string or bytes object in the near future to avoid problems.
+    warnings.warn(
+
+test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_set_basicauth[42-42]
+test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_set_basicauth[42-42]
+  /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/DynaPyt/test/pythonRepo/requests/src/requests/auth.py:48: DeprecationWarning: Non-string passwords will no longer be supported in Requests 3.0.0. Please convert the object you've passed in (<class 'int'>) to a string or bytes object in the near future to avoid problems.
+    warnings.warn(
+
+test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_set_basicauth[None-None]
+test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_set_basicauth[None-None]
+  /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/DynaPyt/test/pythonRepo/requests/src/requests/auth.py:38: DeprecationWarning: Non-string usernames will no longer be supported in Requests 3.0.0. Please convert the object you've passed in (None) to a string or bytes object in the near future to avoid problems.
+    warnings.warn(
+
+test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_set_basicauth[None-None]
+test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_set_basicauth[None-None]
+  /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/DynaPyt/test/pythonRepo/requests/src/requests/auth.py:48: DeprecationWarning: Non-string passwords will no longer be supported in Requests 3.0.0. Please convert the object you've passed in (<class 'NoneType'>) to a string or bytes object in the near future to avoid problems.
+    warnings.warn(
+
+test/pythonRepo/requests/tests/test_utils.py::TestContentEncodingDetection::test_none
+test/pythonRepo/requests/tests/test_utils.py::TestContentEncodingDetection::test_pragmas[<meta charset="UTF-8">]
+test/pythonRepo/requests/tests/test_utils.py::TestContentEncodingDetection::test_pragmas[<meta http-equiv="Content-type" content="text/html;charset=UTF-8">]
+test/pythonRepo/requests/tests/test_utils.py::TestContentEncodingDetection::test_pragmas[<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />]
+test/pythonRepo/requests/tests/test_utils.py::TestContentEncodingDetection::test_precedence
+test/pythonRepo/requests/tests/test_utils.py::TestContentEncodingDetection::test_pragmas[<?xml version="1.0" encoding="UTF-8"?>]
+  /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/DynaPyt/test/pythonRepo/requests/src/requests/utils.py:499: DeprecationWarning: In requests 3.0, get_encodings_from_content will be removed. For more information, please see the discussion on issue #2266. (This warning should only appear once.)
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_conflicting_post_params
+FAILED test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_POSTBIN_GET_POST_FILES
+FAILED test/pythonRepo/requests/tests/test_requests.py::TestPreparingURLs::test_different_connection_pool_for_tls_settings_verify_True
+FAILED test/pythonRepo/requests/tests/test_requests.py::TestRequests::test_POSTBIN_GET_POST_FILES_WITH_DATA
+FAILED test/pythonRepo/requests/tests/test_requests.py::TestPreparingURLs::test_different_connection_pool_for_tls_settings_verify_bundle_expired_cert
+FAILED test/pythonRepo/requests/tests/test_requests.py::TestPreparingURLs::test_different_connection_pool_for_tls_settings_verify_bundle_unexpired_cert
+FAILED test/pythonRepo/requests/tests/test_requests.py::TestPreparingURLs::test_different_connection_pool_for_mtls_settings
+====== 7 failed, 583 passed, 15 skipped, 1 xpassed, 30 warnings in 21.66s ======

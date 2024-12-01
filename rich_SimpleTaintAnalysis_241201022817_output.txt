@@ -1,0 +1,49 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.3.3, pluggy-1.5.0
+rootdir: /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/DynaPyt
+configfile: pyproject.toml
+plugins: xdist-3.6.1
+created: 8/8 workers
+8 workers [874 items]
+
+........................................................................ [  8%]
+........................................................................ [ 16%]
+........................................................................ [ 24%]
+.....................................................................s.. [ 32%]
+.........................ss............................................. [ 41%]
+........................................................................ [ 49%]
+..................s..................................................... [ 57%]
+........................................................................ [ 65%]
+........................................................................ [ 74%]
+........................................................................ [ 82%]
+........................................................................ [ 90%]
+.........s....ss.s.ss.ssssssssssssss.................................... [ 98%]
+....F.....                                                               [100%]
+=================================== FAILURES ===================================
+___________________________________ test_log ___________________________________
+[gw6] darwin -- Python 3.9.6 /Users/1cebearpooh/Documents/homework/sysSecurity/final_project/.venv/bin/python
+
+    def test_log():
+        expected = replace_link_ids(
+            "\x1b[2;36m[TIME]\x1b[0m\x1b[2;36m \x1b[0m                                                           \x1b]8;id=0;foo\x1b\\\x1b[2msource.py\x1b[0m\x1b]8;;\x1b\\\x1b[2m:\x1b[0m\x1b]8;id=0;foo\x1b\\\x1b[2m32\x1b[0m\x1b]8;;\x1b\\\n\x1b[2;36m      \x1b[0m\x1b[2;36m \x1b[0mHello from \x1b[1m<\x1b[0m\x1b[1;95mconsole\x1b[0m\x1b[39m \x1b[0m\x1b[33mwidth\x1b[0m\x1b[39m=\x1b[0m\x1b[1;36m80\x1b[0m\x1b[39m ColorSystem.TRUECOLOR\x1b[0m\x1b[1m>\x1b[0m !      \x1b]8;id=0;foo\x1b\\\x1b[2msource.py\x1b[0m\x1b]8;;\x1b\\\x1b[2m:\x1b[0m\x1b]8;id=0;foo\x1b\\\x1b[2m33\x1b[0m\x1b]8;;\x1b\\\n\x1b[2;36m      \x1b[0m\x1b[2;36m \x1b[0m\x1b[1m[\x1b[0m\x1b[1;36m1\x1b[0m, \x1b[1;36m2\x1b[0m, \x1b[1;36m3\x1b[0m\x1b[1m]\x1b[0m                                                  \x1b]8;id=0;foo\x1b\\\x1b[2msource.py\x1b[0m\x1b]8;;\x1b\\\x1b[2m:\x1b[0m\x1b]8;id=0;foo\x1b\\\x1b[2m34\x1b[0m\x1b]8;;\x1b\\\n\x1b[2;36m       \x1b[0m\x1b[34m╭─\x1b[0m\x1b[34m─────────────────────\x1b[0m\x1b[34m \x1b[0m\x1b[3;34mlocals\x1b[0m\x1b[34m \x1b[0m\x1b[34m─────────────────────\x1b[0m\x1b[34m─╮\x1b[0m     \x1b[2m              \x1b[0m\n\x1b[2;36m       \x1b[0m\x1b[34m│\x1b[0m \x1b[3;33mconsole\x1b[0m\x1b[31m =\x1b[0m \x1b[1m<\x1b[0m\x1b[1;95mconsole\x1b[0m\x1b[39m \x1b[0m\x1b[33mwidth\x1b[0m\x1b[39m=\x1b[0m\x1b[1;36m80\x1b[0m\x1b[39m ColorSystem.TRUECOLOR\x1b[0m\x1b[1m>\x1b[0m \x1b[34m│\x1b[0m     \x1b[2m              \x1b[0m\n\x1b[2;36m       \x1b[0m\x1b[34m╰────────────────────────────────────────────────────╯\x1b[0m     \x1b[2m              \x1b[0m\n"
+        )
+        rendered = render_log()
+        print(repr(rendered))
+>       assert rendered == expected
+E       AssertionError: assert '\x1b[2;36m[T...    \x1b[0m\n' == '\x1b[2;36m[T...    \x1b[0m\n'
+E         
+E         Skipping 144 identical leading characters in diff, use -v to show
+E         Skipping 489 identical trailing characters in diff, use -v to show
+E         - foo\[2m32[0m]8;;\
+E         ?           ^
+E         + foo\[2m34[0m]8;;\
+E         ?           ^...
+E         
+E         ...Full output truncated (8 lines hidden), use '-vv' to show
+
+test/pythonRepo/rich/tests/test_log.py:46: AssertionError
+----------------------------- Captured stdout call -----------------------------
+'\x1b[2;36m[TIME]\x1b[0m\x1b[2;36m \x1b[0m                                                           \x1b]8;id=0;foo\x1b\\\x1b[2msource.py\x1b[0m\x1b]8;;\x1b\\\x1b[2m:\x1b[0m\x1b]8;id=0;foo\x1b\\\x1b[2m34\x1b[0m\x1b]8;;\x1b\\\n\x1b[2;36m      \x1b[0m\x1b[2;36m \x1b[0mHello from \x1b[1m<\x1b[0m\x1b[1;95mconsole\x1b[0m\x1b[39m \x1b[0m\x1b[33mwidth\x1b[0m\x1b[39m=\x1b[0m\x1b[1;36m80\x1b[0m\x1b[39m ColorSystem.TRUECOLOR\x1b[0m\x1b[1m>\x1b[0m !      \x1b]8;id=0;foo\x1b\\\x1b[2msource.py\x1b[0m\x1b]8;;\x1b\\\x1b[2m:\x1b[0m\x1b]8;id=0;foo\x1b\\\x1b[2m35\x1b[0m\x1b]8;;\x1b\\\n\x1b[2;36m      \x1b[0m\x1b[2;36m \x1b[0m\x1b[1m[\x1b[0m\x1b[1;36m1\x1b[0m, \x1b[1;36m2\x1b[0m, \x1b[1;36m3\x1b[0m\x1b[1m]\x1b[0m                                                  \x1b]8;id=0;foo\x1b\\\x1b[2msource.py\x1b[0m\x1b]8;;\x1b\\\x1b[2m:\x1b[0m\x1b]8;id=0;foo\x1b\\\x1b[2m36\x1b[0m\x1b]8;;\x1b\\\n\x1b[2;36m       \x1b[0m\x1b[34m╭─\x1b[0m\x1b[34m─────────────────────\x1b[0m\x1b[34m \x1b[0m\x1b[3;34mlocals\x1b[0m\x1b[34m \x1b[0m\x1b[34m─────────────────────\x1b[0m\x1b[34m─╮\x1b[0m     \x1b[2m              \x1b[0m\n\x1b[2;36m       \x1b[0m\x1b[34m│\x1b[0m \x1b[3;33mconsole\x1b[0m\x1b[31m =\x1b[0m \x1b[1m<\x1b[0m\x1b[1;95mconsole\x1b[0m\x1b[39m \x1b[0m\x1b[33mwidth\x1b[0m\x1b[39m=\x1b[0m\x1b[1;36m80\x1b[0m\x1b[39m ColorSystem.TRUECOLOR\x1b[0m\x1b[1m>\x1b[0m \x1b[34m│\x1b[0m     \x1b[2m              \x1b[0m\n\x1b[2;36m       \x1b[0m\x1b[34m╰────────────────────────────────────────────────────╯\x1b[0m     \x1b[2m              \x1b[0m\n'
+=========================== short test summary info ============================
+FAILED test/pythonRepo/rich/tests/test_log.py::test_log - AssertionError: ass...
+================== 1 failed, 849 passed, 24 skipped in 3.61s ===================
