@@ -1,0 +1,241 @@
+-1: Execution started 
+0: Control flow event 
+0: Before function call 
+0: After function call 
+1: Accessing 
+1:     Writing 
+42: Control flow event 
+42: Before function call 
+3: Accessing 
+3:  Reading 
+3: Attribute connect 
+4: Control flow event 
+4: Before function call 
+4: After function call 
+5: Accessing 
+5:     Writing 
+6: Accessing 
+6:  Reading 
+6: Attribute cursor 
+7: Control flow event 
+7: Before function call 
+7: After function call 
+8: Accessing 
+8:     Writing 
+9: Accessing 
+9:  Reading 
+9: Attribute execute 
+10: Control flow event 
+10: Before function call 
+10: After function call 
+11: Accessing 
+11:  Reading 
+11: Attribute execute 
+12: Control flow event 
+12: Before function call 
+12: After function call 
+13: Accessing 
+13:  Reading 
+13: Attribute execute 
+14: Control flow event 
+14: Before function call 
+14: After function call 
+15: Accessing 
+15:  Reading 
+15: Attribute commit 
+16: Control flow event 
+16: Before function call 
+16: After function call 
+42: After function call 
+43: Accessing 
+43:  Reading 
+43: Attribute signal 
+44: Accessing 
+44:  Reading 
+44: Attribute SIGINT 
+45: Control flow event 
+45: Before function call 
+45: After function call 
+46: Accessing 
+46:  Reading 
+46: Attribute signal 
+47: Accessing 
+47:  Reading 
+47: Attribute SIGTERM 
+48: Control flow event 
+48: Before function call 
+48: After function call 
+49: Accessing 
+49:  Reading 
+49: Attribute run 
+50: Control flow event 
+50: Before function call 
+ * Debugger is active!
+ * Debugger PIN: 465-919-367
+127.0.0.1 - - [02/Dec/2024 11:06:54] "GET / HTTP/1.1" 200 -
+19: Accessing 
+19:  Reading 
+19: Attribute args 
+20: Accessing 
+20:  Reading 
+20: Attribute get 
+21: Control f39: Control flow event 
+39: Before function call 
+39: After function call 
+40: Accessing 
+40:  Reading 
+40: Attribute _exit 
+41: Control flow event 
+41: Before function call 
+t 
+25: Control flow event 
+25: Before function call 
+25: After function call 
+26: Accessing 
+26:     Writing 
+27: Accessing 
+27:  Reading 
+27: Attribute cursor 
+28: Control flow event 
+28: Before function call 
+28: After function call 
+29: Accessing 
+29:     Writing 
+30: Accessing 
+30:  Reading 
+30: Attribute execute 
+31: Control flow event 
+31: Before function call 
+31: After function call 
+32: Accessing 
+32:  Reading 
+32: Attribute fetchall 
+33: Control flow event 
+33: Before function call 
+33: After function call 
+34: Accessing 
+34:     Writing 
+35: Accessing 
+35:  Reading 
+35: Attribute close 
+36: Control flow event 
+36: Before function call 
+36: After function call 
+37: Control flow event 
+37: Before function call 
+37: After function call 
+127.0.0.1 - - [02/Dec/2024 11:07:12] "GET /search?username=Alice HTTP/1.1" 200 -
+19: Accessing 
+19:  Reading 
+19: Attribute args 
+20: Accessing 
+20:  Reading 
+20: Attribute get 
+21: Control flow event 
+21: Before function call 
+21: After function call 
+22: Accessing 
+22:     Writing 
+23: Accessing 
+23:     Writing 
+24: Accessing 
+24:  Reading 
+24: Attribute connect 
+25: Control flow event 
+25: Before function call 
+25: After function call 
+26: Accessing 
+26:     Writing 
+27: Accessing 
+27:  Reading 
+27: Attribute cursor 
+28: Control flow event 
+28: Before function call 
+28: After function call 
+29: Accessing 
+29:     Writing 
+30: Accessing 
+30:  Reading 
+30: Attribute execute 
+31: Control flow event 
+31: Before function call 
+31: After function call 
+32: Accessing 
+32:  Reading 
+32: Attribute fetchall 
+33: Control flow event 
+33: Before function call 
+33: After function call 
+34: Accessing 
+34:     Writing 
+35: Accessing 
+35:  Reading 
+35: Attribute close 
+36: Control flow event 
+36: Before function call 
+36: After function call 
+37: Control flow event 
+37: Before function call 
+37: After function call 
+127.0.0.1 - - [02/Dec/2024 11:07:25] "GET /search?username='%20OR%20'1'='1 HTTP/1.1" 200 -
+19: Accessing 
+19:  Reading 
+19: Attribute args 
+20: Accessing 
+20:  Reading 
+20: Attribute get 
+21: Control flow event 
+21: Before function call 
+21: After function call 
+22: Accessing 
+22:     Writing 
+23: Accessing 
+23:     Writing 
+24: Accessing 
+24:  Reading 
+24: Attribute connect 
+25: Control flow event 
+25: Before function call 
+25: After function call 
+26: Accessing 
+26:     Writing 
+27: Accessing 
+27:  Reading 
+27: Attribute cursor 
+28: Control flow event 
+28: Before function call 
+28: After function call 
+29: Accessing 
+29:     Writing 
+30: Accessing 
+30:  Reading 
+30: Attribute execute 
+31: Control flow event 
+31: Before function call 
+31: After function call 
+32: Accessing 
+32:  Reading 
+32: Attribute fetchall 
+33: Control flow event 
+33: Before function call 
+33: After function call 
+34: Accessing 
+34:     Writing 
+35: Accessing 
+35:  Reading 
+35: Attribute close 
+36: Control flow event 
+36: Before function call 
+36: After function call 
+37: Control flow event 
+37: Before function call 
+37: After function call 
+127.0.0.1 - - [02/Dec/2024 11:07:45] "GET /search?username='%20OR%20'1'='1 HTTP/1.1" 200 -
+39: Control flow event 
+39: Before function call 
+39: After function call 
+40: Accessing 
+40:  Reading 
+40: Attribute _exit 
+41: Control flow event 
+41: Before function call 
